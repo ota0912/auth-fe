@@ -10,8 +10,16 @@ const Welcome: React.FC = () => {
             navigate("/signup");
     }, [navigate]);
 
+    const handleLogout = () => {
+        localStorage.removeItem("jwt");
+        navigate("/signup");
+    };
+
     return (
-        <div>welcome</div>
+        <>
+            <div>welcome</div>
+            <button onClick={handleLogout}>Logout</button>
+        </>
     )
 }
 
