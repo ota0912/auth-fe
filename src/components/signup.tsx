@@ -35,7 +35,7 @@ const Signup: React.FC = () => {
     e.preventDefault();
 
     if (formData.password !== formData.retypePassword) {
-      toast.error('Passwords do not match',{position:"bottom-right"});
+      toast.error('Passwords do not match', { position: "bottom-right" });
       return;
     }
 
@@ -65,18 +65,23 @@ const Signup: React.FC = () => {
       navigate("/otp");
 
     } catch (error) {
-      toast.error(String(error),{position:"bottom-right"});
+      toast.error(String(error), { position: "bottom-right" });
     }
   };
 
   return (
     <section>
-      <img src={signup} />
-      <div>
+      <img className="logo" src={signup} />
+      <div className="box">
+        <div className="switch">
+          <h3>Let us know <span>!</span></h3>
+          <a href="/login"><p>Sign <span id="uline">In</span></p></a>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName">First Name:</label>
             <input
+              placeholder="First Name"
               type="text"
               id="firstName"
               name="firstName"
@@ -88,6 +93,7 @@ const Signup: React.FC = () => {
           <div>
             <label htmlFor="lastName">Last Name:</label>
             <input
+              placeholder="Last Name"
               type="text"
               id="lastName"
               name="lastName"
@@ -97,8 +103,9 @@ const Signup: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Set Password:</label>
             <input
+              placeholder="Set Password"
               type="password"
               id="password"
               name="password"
@@ -110,6 +117,7 @@ const Signup: React.FC = () => {
           <div>
             <label htmlFor="retypePassword">Retype Password:</label>
             <input
+              placeholder="Retype Password"
               type="password"
               id="retypePassword"
               name="retypePassword"
@@ -127,13 +135,14 @@ const Signup: React.FC = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select Contact Mode</option>
+              <option value="" selected disabled hidden>Contact Mode</option>
               <option value="email">Email</option>
             </select>
           </div>
           <div>
-            <label htmlFor="contact">Email:</label>
+            <label htmlFor="contact">Enter Email:</label>
             <input
+              placeholder="Enter Email"
               type="contact"
               id="contact"
               name="contact"
@@ -142,10 +151,10 @@ const Signup: React.FC = () => {
               required
             />
           </div>
-          <button type="submit">Submit</button>
+          <button className="submit" type="submit">Sign Up</button>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </section>
   )
 }

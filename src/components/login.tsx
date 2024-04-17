@@ -60,8 +60,12 @@ const Login: React.FC = () => {
 
   return (
     <section>
-      <img src={login} />
-      <div>
+      <img className="logo" src={login} />
+      <div className="box">
+        <div className="switch">
+          <h3>Fill what we know <span>!</span></h3>
+          <p></p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="mode">Contact Mode:</label>
@@ -72,13 +76,14 @@ const Login: React.FC = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select Contact Mode</option>
+              <option value="" style={{display: 'none'}}>Contact Mode</option>
               <option value="email">Email</option>
             </select>
           </div>
           <div>
             <label htmlFor="contact">Email:</label>
             <input
+              placeholder="Enter Email"
               type="contact"
               id="contact"
               name="contact"
@@ -90,6 +95,7 @@ const Login: React.FC = () => {
           <div>
             <label htmlFor="password">Password:</label>
             <input
+              placeholder="Set Password"
               type="password"
               id="password"
               name="password"
@@ -98,7 +104,8 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <button type="submit">Submit</button>
+          <button className="submit" type="submit">Sign In</button>
+          <button className="change" onClick={()=>navigate("/signup")}>Sign Up</button>
         </form>
       </div>
       <ToastContainer/>

@@ -16,10 +16,10 @@ const Welcome: React.FC = () => {
     };
 
     return (
-        <>
-            <div>welcome</div>
-            <button onClick={handleLogout}>Logout</button>
-        </>
+        <article>
+            <h1>WELCOME</h1>
+            <button className="submit" onClick={handleLogout}>Logout</button>
+        </article>
     )
 }
 

@@ -61,12 +61,17 @@ const Otp: React.FC = () => {
 
   return (
     <section>
-      <img src={signup} />
-      <div>
+      <img className="logo" src={signup} />
+      <div className="box">
+        <div className="switch">
+          <h3>OTP <span>Verification</span></h3>
+          <p></p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="otp">OTP:</label>
             <input
+              placeholder="Enter OTP:"
               type="otp"
               id="otp"
               name="otp"
@@ -75,7 +80,7 @@ const Otp: React.FC = () => {
               required
             />
           </div>
-          <button type="submit">Submit</button>
+          <button className="submit" type="submit">Submit</button>
         </form>
       </div>
       <ToastContainer/>

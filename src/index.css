@@ -5,5 +5,134 @@
 }
 
 section {
+  margin: 3rem;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+article {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  width: 40rem;
+}
+
+.box {
+  border: 2px solid #c4bcc7;
+  border-radius: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem; 
+}
+
+.switch {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3A244A;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3A244A;
+}
+
+span{
+  color: #D72638;
+}
+
+#uline {
+  text-decoration-color: #D72638;
+  text-decoration-line: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+label {
+  display: none;
+}
+
+input, select {
+  margin-top: 2rem;
+  font-size: medium;
+  width: 25rem;
+  height: 2rem;
+  padding: 0.7rem;
+  padding-bottom: 1rem;
+}
+
+input::placeholder{
+  color: #c4bcc7;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid #c4bcc7;
+}
+
+input:focus{
+  border-bottom: 2px solid black;
+  color: black;
+  outline: none;
+}
+
+select{
+  appearance: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  height: 2.78rem;
+  padding-bottom: 0.5rem;
+  border: none; 
+  outline: none; 
+  color: #c4bcc7;
+  border-bottom: 2px solid #c4bcc7;
+  margin-top: 1.2rem;
+}
+
+.submit, .change {
+  margin-top: 2.5rem;
+  width: 25rem;
+  height: 3.5rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #3A244A;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.change {
+  margin-top: 1rem;
+  border: 2px solid #3A244A;
+  background-color: white;
+  color: #3A244A;
+}
+
+button:hover {
+  cursor: pointer;
 }
