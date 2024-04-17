@@ -18,6 +18,7 @@ const Otp: React.FC = () => {
   }, [navigate]); 
 
   const [formData, setFormData] = useState<FormData>({otp: ''});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -26,6 +27,8 @@ const Otp: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const response = await fetch("https://auth-template-1.onrender.com/api/otp", {
@@ -56,6 +59,8 @@ const Otp: React.FC = () => {
 
     } catch (error) {
       toast.error(String(error),{position:"bottom-right"});
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -80,7 +85,9 @@ const Otp: React.FC = () => {
               required
             />
           </div>
-          <button className="submit" type="submit">Submit</button>
+          <button className="submit" type="submit">
+            {isLoading ? 'Loading...' : 'Sign Up'}
+          </button>
         </form>
       </div>
       <ToastContainer/>

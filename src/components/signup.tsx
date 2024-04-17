@@ -26,6 +26,8 @@ const Signup: React.FC = () => {
     contact: '',
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -38,6 +40,8 @@ const Signup: React.FC = () => {
       toast.error('Passwords do not match', { position: "bottom-right" });
       return;
     }
+
+    setIsLoading(true);
 
     try {
       const response = await fetch("https://auth-template-1.onrender.com/api/users", {
@@ -66,6 +70,8 @@ const Signup: React.FC = () => {
 
     } catch (error) {
       toast.error(String(error), { position: "bottom-right" });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -151,7 +157,9 @@ const Signup: React.FC = () => {
               required
             />
           </div>
-          <button className="submit" type="submit">Sign Up</button>
+          <button className="submit" type="submit">
+          {isLoading ? 'Loading...' : 'Sign Up'}
+          </button>
         </form>
       </div>
       <ToastContainer />

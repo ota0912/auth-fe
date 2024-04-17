@@ -19,6 +19,8 @@ const Login: React.FC = () => {
     mode: '',
     contact: '',
   });
+  
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -27,6 +29,8 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     try {
       const response = await fetch("https://auth-template-1.onrender.com/api/auth", {
@@ -55,6 +59,8 @@ const Login: React.FC = () => {
 
     } catch (error) {
       toast.error(String(error),{position:"bottom-right"});
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -104,7 +110,9 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <button className="submit" type="submit">Sign In</button>
+          <button className="submit" type="submit">
+            {isLoading ? 'Loading...' : 'Sign In'}
+          </button>
           <button className="change" onClick={()=>navigate("/signup")}>Sign Up</button>
         </form>
       </div>
